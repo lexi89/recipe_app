@@ -13,7 +13,7 @@
         
     </div>
     
-    <div class = "col-lg-8 well">
+    <div class = "col-lg-6 well">
         <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
         <p><%= recipe.summary %></p>
         <p>
@@ -21,7 +21,9 @@
         </p>
         
     </div>
-    
-    
+    <div class = "col-md-4">
+        <%= image_tag(recipe.picture.url, size: "250x250") if recipe.picture? %>
+        
+    </div>    
 </div>
 <% end %>
