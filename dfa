@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/app/controllers/recipes_controller.rb @ line 23 RecipesController#create:
+
+    [1;34m22[0m: [32mdef[0m [1;34mcreate[0m
+ => [1;34m23[0m:     binding.pry
+    [1;34m24[0m:     @recipe = [1;34;4mRecipe[0m.new(recipe_params)
+    [1;34m25[0m:     @recipe.chef = [1;34;4mChef[0m.find([1;34m1[0m)
+    [1;34m26[0m: 
+    [1;34m27[0m:     [32mif[0m @recipe.save
+    [1;34m28[0m:         flash[[33m:success[0m] = [31m[1;31m"[0m[31mYour recipe was created successfully[1;31m"[0m[31m[0m
+    [1;34m29[0m:         redirect_to recipes_path
+    [1;34m30[0m:     [32melse[0m
+    [1;34m31[0m:         render [33m:new[0m
+    [1;34m32[0m:     [32mend[0m
+    [1;34m33[0m:     
+    [1;34m34[0m:         
+    [1;34m35[0m: [32mend[0m
+

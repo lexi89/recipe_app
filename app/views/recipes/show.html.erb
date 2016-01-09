@@ -1,0 +1,17 @@
+<div class= "container-fluid">
+    <%= render "shared/page_title", title: @recipe.name %>
+    <div class = "row">
+        
+        <div class= "col-md-8">
+            <h2>Steps</h2>
+            <div class = "well">
+                <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn btn-success pull-right" %>
+                <p><%= simple_format(@recipe.description) %></p>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+
+<h5><%= link_to "Return to all recipes", recipes_path, class: "btn btn-warning" %></h5>
