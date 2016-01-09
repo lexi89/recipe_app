@@ -1,0 +1,31 @@
+<%= render "shared/page_title", title: @chef.chefname + " profile" %>
+
+<div class= "container-fluid">
+    <div class = "row center">
+        <h5>Name: <%= @chef.chefname %></h5>
+        <h5>Email: <%= @chef.email %></h5>
+        <p>Profile image here</p>
+        <%= link_to "Edit profile", edit_chef_path(@chef), class: "btn btn-success" %>
+        <%= link_to "View all recipes", recipes_path, class: "btn btn-success"%>
+        
+    </div>
+    
+    <h2 class = "center">My recipes:</h2>
+    <% @chef.recipes.each do |recipe| %>
+    <div class = "col-lg-6 well center col-lg-offset-3">
+        <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
+        <p><%= recipe.summary %></p>
+        <p>
+            <span class = "quiet"><small>Created <%= time_ago_in_words(recipe.created_at) %> ago </small></span>
+        </p>
+        <div class="pull-right">
+                    <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+                        <i class = "glyphicon glyphicon-thumbs-up"></i>&nbsp <%= recipe.thumbs_up_total %>
+                    <% end %> &nbsp&nbsp&nbsp&nbsp
+                    <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+                        <i class = "glyphicon glyphicon-thumbs-down"></i>&nbsp <%= recipe.thumbs_down_total %>
+                    <% end %>
+        </div>
+        
+    </div>
+    <% end %>
